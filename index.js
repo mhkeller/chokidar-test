@@ -1,7 +1,7 @@
 var chokidar = require('chokidar')
 var path = require('path')
 
-var watchGlob = 'files/test.txt'
+var watchGlob = ['files/test.txt', 'files/subdir/file-2.txt']
 var watcher = chokidar.watch(watchGlob, {
   ignored: /(^|[\/\\])\../,
   persistent: true

@@ -1,7 +1,7 @@
 var chokidar = require('chokidar')
 var path = require('path')
 
-var watchGlob = 'files/**/*'
+var watchGlob = 'files/test.txt'
 var watcher = chokidar.watch(watchGlob, {
   ignored: /(^|[\/\\])\../,
   persistent: true
@@ -13,17 +13,17 @@ var baseDir = path.resolve('./');
 watcher.on('ready', function () {
   var watchList = watcher.getWatched()
 
-  var parts = watchGlob.split('/');
-  var preceedingDir = parts.findIndex(d => d.indexOf('*') > -1) - 1
-  console.log(parts[preceedingDir])
+  // var parts = watchGlob.split('/');
+  // var preceedingDir = parts.findIndex(d => d.indexOf('*') > -1) - 1
+  // console.log(parts[preceedingDir])
 
-  Object.keys(watchList).forEach(key => {
-    var x = watchList[key]
-    console.log(fullPathsToPrjPath(x), '#', x)
-  })
+  // Object.keys(watchList).forEach(key => {
+  //   var x = watchList[key]
+  //   console.log(fullPathsToPrjPath(x), '#', x)
+  // })
 
 
-  // console.log('watch list', watchList)
+  console.log('watch list', watchList)
 })
 
 function fullPathsToPrjPath (filePaths) {
